@@ -1,0 +1,25 @@
+﻿"First Name","Last Name","ID","Salutation","Title","Department","Account Name","Email Address","Non Primary E-mails","Mobile","Office Phone","Home","Other Phone","Fax","Primary Address Street","Primary address state","Primary address state","Pin Code","Primary Address Country","Alternate Address Street","Alternate Address City","Alternate Address State","Alternate Address Postal Code","Alternate Address Country","Description","Birthdate","Assistant","Assistant Phone","Campaign ID","Tracker Key","Do Not Call","Lead Id","Assigned to","Assigned To","Date Created","Date Modified","Modified By","Created By","Deleted","Photo","Address","Dealer Vehicle","m2all enquiry id","Comment","Dealer Name","City","Vehicle variant","Longitude","Lead Type","Latitude","Status","State","push to dms","Dealer City","Followup Date","Lead source","m2all dealer parent code","Geocode Status","Address","m2all dealer location code","vehicle variant colour"
+"RUSSELL RODRIGUES","","10dde95b-2ad8-8c26-ed72-59eed9b75ce6","","","","","highflycareer@gmail.com","","9819692018","","","","","","","","","","","","","","","","","","","","105","0","","admin","1","10/24/2017 11:42","10/24/2017 11:42","1","1","0","","","","","","","","","0.00000000","TEST_DRIVE","0.00000000","Dealercall","","","","10/25/2017 09:00","DIRECT","","","LBS VIKROLI","",""
+"umakant shaha","","145edad8-9c58-22de-03fd-59eed907c5e1","","","","","shaha34@gmail.com","","9821437998","","","","","","","","","","","","","","","","","","","","103","0","","admin","1","10/24/2017 11:42","10/24/2017 11:42","1","1","0","","","","","","","","","0.00000000","TEST_DRIVE","0.00000000","Dealercall","","","","10/25/2017 09:00","DIRECT","","","NERUL","",""
+"Ram","","174103b0-024f-ffac-6f16-59eed93cff4a","","","","","","","8056404147","","","","","","","","","","","","","","","","","","","","94","0","","admin","1","10/24/2017 11:42","10/24/2017 11:42","1","1","0","","","","","","","","","0.00000000","SYOUV-LeadWidget","0.00000000","Dealercall","","","","10/25/2017 09:00","DIRECT","","","NULL","",""
+"samir pandey","","1900557d-94ec-102e-cc5c-59eed9c31f48","","","","","samir.pandey@gmail.com","","9820235815","","","","","","","","","","","","","","","","","","","","74","0","","admin","1","10/24/2017 11:42","10/24/2017 11:42","1","1","0","","","","","","","","","0.00000000","TEST_DRIVE","0.00000000","Dealercall","","","","10/25/2017 09:00","DIRECT","","","NERUL","",""
+"ASHIK .","","1b790293-3b6a-8a6b-e6bb-59eed90c7ecd","","","","","ashik.za@gmail.com","","9994413013","","","","","","","","","","","","","","","","","","","","76","0","a0dc0624-904a-3722-3788-59f0558e4615","admin","1","10/24/2017 11:42","10/25/2017 14:41","1","1","0","","","","","this is comment","UN001|UN02|XYLOMM352900515","","H8 ABS AB 7CC","0.00000000","TEST_DRIVE","0.00000000","Booking","","yes","AMRAVATI","10/26/2017 09:00","DIRECT","","","VELACHERY","","DSAT SILVER"
+
+
+"This is a sample import file which provides an example of the expected contents of a file that is ready for import."
+"The file is a comma-delimited .csv file, using double-quotes as the field qualifier."
+
+"The header row is the top-most row in the file and contains the field labels as you would see them in the application."
+"These labels are used for mapping the data in the file to the fields in the application."
+
+"Notes: The database names could also be used in the header row. This is useful when you are using phpMyAdmin or another database tool to provide an exported list of data to import."
+"The column order is not critical as the import process matches the data to the appropriate fields based on the header row."
+
+
+"To use this file as a template, do the following:"
+"1. Remove the sample rows of data"
+"2. Remove the help text that you are reading right now"
+"3. Input your own data into the appropriate rows and columns"
+"4. Save the file to a known location on your system"
+"5. Click on the Import option from the Actions menu in the application and choose the file to upload"
+   

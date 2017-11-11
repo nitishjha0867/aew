@@ -1,0 +1,275 @@
+#wrapper {
+    width: 100%;
+}
+#page-wrapper {
+    /*--padding: 0 15px;--*/
+    min-height: 568px;
+    border-left: 1px solid #ddd;
+}
+
+@media(min-width:768px) {
+    #page-wrapper {
+        position: inherit;
+        margin: 60px 0 0 250px;
+    }
+}
+
+.navbar-top-links {
+    margin-right: 0;
+}
+
+.navbar-top-links li {
+    display: inline-block;
+}
+
+.navbar-top-links li:last-child {
+    margin-right: 15px;
+}
+
+.navbar-top-links li a {
+    padding: 15px;
+  
+}
+
+.navbar-top-links .dropdown-menu li {
+    display: block;
+}
+
+.navbar-top-links .dropdown-menu li:last-child {
+    margin-right: 0;
+}
+
+.navbar-top-links .dropdown-menu li a {
+    padding: 3px 20px;
+    min-height: 0;
+}
+
+.navbar-top-links .dropdown-menu li a div {
+    white-space: normal;
+}
+
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks,
+.navbar-top-links .dropdown-alerts {
+    width: 310px;
+    min-width: 0;
+}
+.navbar-top-links .dropdown-messages {
+    margin-left: 5px;
+}
+.navbar-top-links .dropdown-tasks {
+    margin-left: -59px;
+}
+
+.navbar-top-links .dropdown-alerts {
+    margin-left: -123px;
+}
+
+.navbar-top-links .dropdown-user {
+    right: 0;
+    left: auto;
+}
+
+.sidebar .sidebar-nav.navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.sidebar .sidebar-search {
+    padding: 15px;
+}
+.sidebar .arrow {
+    float: right;
+}
+
+.sidebar .fa.arrow:before {
+    content: "\f104";
+}
+
+.sidebar .active>a>.fa.arrow:before {
+    content: "\f107";
+}
+
+.sidebar .nav-second-level li{
+    border-bottom: 0!important;
+    background: #f5f5f5;
+}
+
+.sidebar .nav-third-level li {
+    border-bottom: 0!important;
+    background: #e5e5e5;
+}
+
+
+/* APP CSS START */
+#wrapper .navbar-header+.border-bottom {
+    border-bottom: 1px solid #d95459;
+}
+.panel-group .panel{
+    background: #fff;
+    margin-bottom: 1em;
+    border: 1px solid #ebeff6;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.panel-group .panel-heading{
+    padding: 1em;
+    color: #111;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+}
+a[data-toggle]:hover, a[data-toggle]:focus{
+    text-decoration: none;
+}
+.form-group .btn:not(:last-child){
+    margin-right: 10px;
+}
+button.btn-submit, a.btn-submit{
+    color: #fff;
+    background: #d95459;
+    transition: 0.5s all;
+}
+button.btn-submit:hover, button.btn-submit:focus,
+a.btn-submit:hover, a.btn-submit:focus {
+    color: #fff;
+    background: #c13d43;
+    transition: 0.5s all;
+}
+.btn.btn-trans:hover, .btn.btn-trans:focus{
+    background: #ccc;
+}
+textarea{ resize: vertical; }
+.width100{ width: 100%; }
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover {
+    color: #fff !important;
+    background-color: #d95459;
+    outline: none;
+}
+/*swal*/
+.sweet-alert{ border-radius: 0; }
+.sweet-alert h2 {
+    font-size: 20px;
+    margin: 5px 0;
+    line-height: 25px;
+}
+.sweet-alert button {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 5px 30px;
+    margin: 10px 5px 0 5px;
+    -webkit-border-radius: 0px;
+    border-radius: 0;
+}
+/*swal end*/
+.panel-title>.fa{ margin-right: 10px; }
+table.border_top{ border-top: 3px double #ddd;}
+p.form-control-static{
+    font-weight: normal;
+    color: #666;
+    font-size: 14px;
+}
+button.std_btn, a.std_btn {
+    color: #fff;
+    background: #d95459;
+    border-radius: 0;
+    border: none;
+    transition: 0.5s all;
+}
+button.std_btn:hover, button.std_btn:focus,
+a.std_btn:hover, a.std_btn:focus {
+    color: #fff;
+    background: #c13d43;
+    transition: 0.5s all;
+}
+.text-danger {
+    color: #a94442 !important;
+}
+.inline_alert{ margin-left: 30px; }
+.btn, .btn:hover, .btn:focus{ transition: 0.5s all; }
+body.is_loading .top_loader{
+  width: 100%;
+  height: 3px;
+  background-color: #d95459;
+  background-image: linear-gradient(135deg,rgb(255, 255, 255) 25%,transparent 25%,transparent 50%,rgb(255, 255, 255) 50%,rgb(255, 255, 255) 75%,transparent 75%,transparent);
+  animation: progress-bar-stripes 1s linear infinite;
+  position: absolute;
+  bottom: -2px;
+  background-size: 40px 40px;
+}
+body.is_loading {
+    cursor: progress;
+    pointer-events: none;
+}
+.address_wrapper_view>p{
+    padding: 0 15px;
+}
+.no_col_padding>div[class^="col-"]{
+    padding: 0;
+}
+.panel .card{
+    border-radius: 5px;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border: 2px solid #e9e9e9;
+}
+.panel .card_wrapper:first-child .card{ margin-left: 0;}
+.panel .card_wrapper:last-child .card{ margin-right: 0;}
+strong.big_caption {
+    text-align: center;
+    display: block;
+    margin: 3px 0;
+    /*background: #eee;*/
+    padding: 2px;
+}
+table.dataTable{ width: 100% !important; }
+button:focus{ outline: none !important; }
+.pagination{
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+    background-color: #d95459;
+    border-color: #d95459;
+}
+.dt_opt_top .dataTables_length{
+    display: inline;
+}
+div.dataTables_wrapper div.dt_opt_top div.dataTables_filter {
+    float: right;
+}
+div.dataTables_wrapper div.dt_opt_bottom div.dataTables_paginate{
+    float: right;
+}
+div.dataTables_wrapper :input{
+    margin: 0.5em 0 !important;
+}
+div.dataTables_wrapper div.dataTables_info {
+    border-top: 2px solid #ddd;
+    margin-bottom: 10px;
+}
+.form-control[disabled], .form-control[readonly]{
+    background: #fff;
+}
+/* APP CSS END */
+
+@media(min-width:768px) {
+    .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+        
+    }
+
+    .navbar-top-links .dropdown-messages,
+    .navbar-top-links .dropdown-tasks,
+    .navbar-top-links .dropdown-alerts {
+        margin-left: auto;
+    }
+}
+

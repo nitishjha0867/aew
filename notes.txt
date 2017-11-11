@@ -1,0 +1,8 @@
+CSV PARSER REFERENCE
+====================
+http://php.net/manual/en/function.str-getcsv.php
+https://stackoverflow.com/questions/1269562/how-to-create-an-array-from-a-csv-file-using-php-and-the-fgetcsv-function
+
+TODO
+====
+1. clone contact person functionality pending in manage-clients view
