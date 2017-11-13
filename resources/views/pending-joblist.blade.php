@@ -13,10 +13,19 @@
 
 	.modal-footer{text-align:center !important;}
 @endsection
-@php
-	$count = 1;
-@endphp
+
+
 @section('page_content')
+	@php
+		$count = 1;
+
+		if(count($data) == 0)
+		{
+			echo "<h3 style = 'text-align:center; margin-top:30vh'>No Data Available to show</h3>";
+			exit;
+		}
+
+	@endphp
 	<table class="table table-condensed table-hover table-bordered view_table">
 		<thead>
 			<th>
@@ -26,13 +35,19 @@
 				Job No.
 			</th>
 			<th>
+				Order No.
+			</th>
+			<th>
 				Plant Name
 			</th>
 			<th>
 				Client name
 			</th>
 			<th>
-				Order No.
+				Status
+			</th>
+			<th>
+				Comment
 			</th>
 			<th>
 				Edit Order
@@ -51,13 +66,19 @@
 						{{$val->job_num}}
 					</td>
 					<td>
+						{{$val->order_num}}
+					</td>
+					<td>
 						{{$val->plant_name}}
 					</td>
 					<td>
 						{{$val->client_name}}
 					</td>
 					<td>
-						{{$val->order_num}}
+						{{$val->status}}
+					</td>
+					<td>
+						{{$val->comment}}
 					</td>
 					<td>
 						<button class="btn btn-primary edit_btn" data-jobid="{{$val->job_id}}" data-jobno="{{$val->job_num}}" data-orderno="{{$val->order_num}}">EDIT</button>
@@ -90,15 +111,15 @@
 
 						<label class="label-control col-md-4">Comments</label>
 						<div class="col-md-8 form-group">
-							<input class="form-control" type="text" name="job_comment" value="">
+							<textarea class="form-control" type="text" rows="4" cols="20" name="job_comment"></textarea>
 						</div>
 
 						<label class="label-control col-md-4">Documents</label>
 						<div class="col-md-8 form-group">
 							<input class="form-control" type="file" name="job_documents[]" multiple>
 						</div>
-						<!--<div class="addded_documents col-md-8 col-md-offset-2 form-group text-center">	
-						</div>-->
+						<div class="addded_documents col-md-8 col-md-offset-2 form-group text-center">	
+						</div>
 						<div class="col-md-4 col-md-offset-4 form-group">
 							<input type="submit" class="btn btn-primary" name="Submit" value="submit">
 						</div>
@@ -143,6 +164,12 @@
 						<div class="col-md-6 form-group">
 							<input class="form-control" type="file" name="lr_copy">
 						</div>
+
+						<label class="label-control col-md-6">Challan No.</label>
+						<div class="col-md-6 form-group">
+							<input class="form-control" type="text" name="challan_number" value="">
+						</div>
+
 						<!--<div class="addded_documents col-md-8 col-md-offset-2 form-group text-center">	
 						</div>-->
 						<div class="col-md-4 col-md-offset-4 form-group">
@@ -177,26 +204,26 @@
   		modal.find('input[name="job_num"]').val(job_num);
 		$.ajax({
 			type : 'GET',
-			url:'/order/'+job_id,
+			url:'/order/getJobData/'+job_id,
 			success : function(data){
+				console.log(data);
 				data = JSON.parse(data);
 				var status = data.status;
 				var comment = data.comment;
 				var doc_src = data.other_attachment;
 				doc_src = doc_src.split(',');
 				modal.find('input[name="job_status"]').val(status);
-				modal.find('input[name="job_comment"]').val(comment);
-				/*var img_src = "";
-				console.log(doc_src);
+				modal.find('textarea[name="job_comment"]').html(comment);
+				var img_src = "";
+				//console.log(doc_src);
 				$.each(doc_src , function (index, value){
 					if(value != "")
 					{
-						img_src += "<a href='{{ URL::asset('"+value+"')}}' download>Document "+(index+1)+"</a><br/>";
+						img_src += "<a href='/"+value+"' download>Document "+(index+1)+"</a><br/>";
 					}
 				});
-				console.log(img_src);
 
-				modal.find('.addded_documents').html(img_src);*/
+				modal.find('.addded_documents').html(img_src);
 			}
 		})
 

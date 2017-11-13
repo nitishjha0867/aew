@@ -52,6 +52,7 @@ Route::get('/order/generate-invoice', 'OrderController@generateInvoice');
 Route::post('/get_quotation_data', 'OrderController@getQuotationData');
 Route::get('/order/completed', 'OrderController@completedOrders');
 Route::get('/order/pending', 'OrderController@pendingOrders');
+Route::get('/order/getJobData/{id}', 'OrderController@getJobData');
 Route::resource('/order', 'OrderController');
 
 /*

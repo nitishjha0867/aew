@@ -203,7 +203,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<a href="{{ url('/order/pending') }}" class=" hvr-bounce-to-right"><i class="fa fa-cog nav_icon "></i><span class="nav-label">Pending Orders</span> </a>
 									</li>
 									<li>
-										<a href="{{ url('/order/Completed') }}" class=" hvr-bounce-to-right"><i class="fa fa-cog nav_icon "></i><span class="nav-label">Completed Orders</span> </a>
+										<a href="{{ url('/order/completed') }}" class=" hvr-bounce-to-right"><i class="fa fa-cog nav_icon "></i><span class="nav-label">Completed Orders</span> </a>
 									</li>
 									<li>
 										<a href="{{ url('/order/generate-invoice') }}" class=" hvr-bounce-to-right"><i class="fa fa-cog nav_icon "></i><span class="nav-label">Generate Invoice</span> </a>

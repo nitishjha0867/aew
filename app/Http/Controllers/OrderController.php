@@ -41,7 +41,7 @@ class OrderController extends Controller
     public function completedOrders()
     {
     	# code...
-    	//Added by nitish for order job listing
+    	//Added by nitish for completed order job listing
 
         $query_fetch = DB::table('jobs as jo')->join('orders as or', 'or.order_id', '=','jo.order_id')->join('plants as pt', 'pt.plant_id', '=', 'or.plant_id')->join('clients as cl', 'cl.client_id', '=', 'pt.client_id')->select('jo.*', 'or.order_num', 'pt.plant_name', 'pt.plant_state', 'pt.plant_city', 'cl.client_name')->where('jo.invoice_status', '=', '1')->get();
 
@@ -160,6 +160,14 @@ class OrderController extends Controller
         return redirect('/order/create');
     }
 
+
+    //Customer function to get data via ajax call for Jobs
+    public function getJobData($id)
+    {
+        $query_fetch = DB::table('jobs')->select('status', 'comment', 'other_attachment')->where('job_id', '=', $id)->get();
+        echo json_encode($query_fetch[0]);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -168,9 +176,8 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
-         $query_fetch = DB::table('jobs')->select('status', 'comment', 'other_attachment')->where('job_id', '=', $id)->get();
-         echo json_encode($query_fetch[0]);
+         //$query_fetch = DB::table('jobs')->select('status', 'comment', 'other_attachment')->where('job_id', '=', $id)->get();
+         //echo json_encode($query_fetch[0]);
     }
 
     /**
@@ -196,7 +203,7 @@ class OrderController extends Controller
         //
 
         $edited_data = $request->all();
-       // dd($edited_data);
+      //dd($id);
 
         $timestamp = \Carbon\Carbon::now();
 
@@ -213,7 +220,7 @@ class OrderController extends Controller
 
 	        if(isset($edited_data['job_comment']))
 	        {
-	        	$job_comment = StringHelper::sanitize($edited_data['job_comment']);
+	        	$job_comment = StringHelper::sanitize($edited_data['job_comment'], "'");
 	        }
 	        else
 	        {
@@ -224,6 +231,7 @@ class OrderController extends Controller
 
 	        $order_path = 'documents/orders/';
 	        $other_documents_path = $order_path.'jobs/other_attachments/'.$job_num.'/';
+
 	        if(!file_exists($other_documents_path)){ mkdir($other_documents_path, 0755, true); };
 
 
@@ -234,6 +242,7 @@ class OrderController extends Controller
 	            //$order_copy = $order_num;
 	        	 foreach($request->file('job_documents') as $media)
 		        {
+                    //dd($media);
 		            if(!empty($media))
 		            {
 		            $docName = $media->getClientOriginalName();
@@ -252,7 +261,7 @@ class OrderController extends Controller
 
 	        DB::table('jobs')->where('job_id', $id)->update(['status'=>$job_status, 'comment'=>$job_comment, 'other_attachment'=>$uploadedName, 'updated_at'=>$timestamp]);
 	        Alert::success('The job number '.$job_num, 'Job Successfully Updated!')->html()->persistent('Ok');
-	        return redirect('/order/');
+	        return redirect('/order/pending');
         }
 
         else
@@ -275,6 +284,15 @@ class OrderController extends Controller
 	        	$lr_number = '';
 	        }
 
+            if(isset($edited_data['challan_number']))
+            {
+                $challan_number = $edited_data['challan_number'];
+            }
+            else
+            {
+                $challan_number = '';
+            }
+
 	        $job_num = $edited_data['job_num'];
 
 	        $lr_path = 'documents/orders/lr_copy/';
@@ -291,7 +309,15 @@ class OrderController extends Controller
 	        	$lr_no = "";
 	        }
 
-	        DB::table('jobs')->where('job_id', $id)->update(['delivery_date'=>$date_dispatch, 'lr_no'=>$lr_number, 'lr_copy'=>$lr_no, 'invoice_status'=>1, 'updated_at'=>$timestamp]);
+            $query_fetch = DB::table('jobs')->select('due_date')->where('job_id', '=', $id)->get();
+
+            $dueDate = $query_fetch[0]->due_date;
+
+            $date_diff = date_diff(date_create($date_dispatch), date_create($dueDate));
+
+            $late_days = $date_diff->days;
+
+	        DB::table('jobs')->where('job_id', $id)->update(['delivery_date'=>$date_dispatch, 'lr_no'=>$lr_number, 'lr_copy'=>$lr_no, 'challan_no'=>$challan_number, 'late_delivery'=>$late_days, 'invoice_status'=>1, 'updated_at'=>$timestamp]);
 	        Alert::success('The job number '.$job_num, 'Job Successfully Updated!')->html()->persistent('Ok');
 	        return redirect('/order/completed');
         }
